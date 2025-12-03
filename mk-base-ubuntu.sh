@@ -7,7 +7,7 @@ if [ ! $TARGET ]; then
 	echo "[0] Exit Menu"
 	echo "[1] gnome"
 	echo "[2] xfce"
-	echo "[3] lite"
+	echo "[3] server"
 	echo "[4] gnome-full"
 	echo "[5] xfce-full"
 	echo "---------------------------------------------------------"
@@ -17,7 +17,7 @@ if [ ! $TARGET ]; then
 		0)  exit;;
 		1)  TARGET=gnome ;;
 		2)  TARGET=xfce ;;
-		3)  TARGET=lite ;;
+		3)  TARGET=server ;;
 		4)  TARGET=gnome-full ;;
 		5)  TARGET=xfce-full ;;
 		*)  echo -e "\033[47;36m input TARGET version number error, exit ! \033[0m"
@@ -82,7 +82,7 @@ if [ "$TARGET" == "gnome" ]; then
    \${APT_INSTALL} ubuntu-desktop-minimal rsyslog sudo dialog apt-utils ntp evtest onboard
 elif [ "$TARGET" == "xfce" ]; then
     \${APT_INSTALL} xubuntu-core rsyslog sudo dialog apt-utils ntp evtest udev
-elif [ "$TARGET" == "lite" ]; then
+elif [ "$TARGET" == "server" ]; then
     \${APT_INSTALL} rsyslog sudo dialog apt-utils ntp evtest acpid
 elif [ "$TARGET" == "gnome-full" ]; then
     \${APT_INSTALL} ubuntu-desktop-minimal rsyslog sudo dialog apt-utils ntp evtest onboard
@@ -134,7 +134,7 @@ if [[ "$TARGET" == "gnome" || "$TARGET" == "gnome-full" ]]; then
     \${APT_INSTALL} mpv acpid gnome-sound-recorder
 elif [[ "$TARGET" == "xfce" || "$TARGET" == "xfce-full" ]]; then
     \${APT_INSTALL} mpv acpid
-elif [ "$TARGET" == "lite" ]; then
+elif [ "$TARGET" == "server" ]; then
     \${APT_INSTALL}  
 fi
 

@@ -38,7 +38,7 @@ if [ ! $TARGET ]; then
     echo "[0] Exit Menu"
     echo "[1] gnome"
     echo "[2] xfce"
-    echo "[3] lite"
+    echo "[3] server"
     echo "[4] gnome-full"
     echo "[5] xfce-full"
     echo "---------------------------------------------------------"
@@ -48,7 +48,7 @@ if [ ! $TARGET ]; then
         0)  exit ;;
         1) TARGET=gnome ;;
         2) TARGET=xfce ;;
-        3) TARGET=lite ;;
+        3) TARGET=server ;;
         4) TARGET=gnome-full ;;
         5) TARGET=xfce-full ;;
         *)  echo -e "\033[47;36m input TARGET version number error, exit ! \033[0m"
@@ -222,7 +222,7 @@ elif [[ "$TARGET" == "xfce" || "$TARGET" == "xfce-full" ]]; then
     \${APT_INSTALL} bluez bluez-tools 
     #Desktop background picture
     ln -sf /usr/share/xfce4/backdrops/armsom-wallpaper.png /usr/share/xfce4/backdrops/xubuntu-wallpaper.png
-elif [ "$TARGET" == "lite" ]; then
+elif [ "$TARGET" == "server" ]; then
     \${APT_INSTALL} bluez bluez-tools
 fi
 
@@ -246,7 +246,7 @@ if [[ "$TARGET" == "gnome" ||  "$TARGET" == "xfce" || "$TARGET" == "gnome-full" 
     \${APT_INSTALL} /packages/mpp/*
     \${APT_INSTALL} /packages/gst-rkmpp/*.deb
     \${APT_INSTALL} /packages/gstreamer/*.deb
-elif [ "$TARGET" == "lite" ]; then
+elif [ "$TARGET" == "server" ]; then
     echo -e "\033[47;36m ------ Setup Video---------- \033[0m"
     \${APT_INSTALL} /packages/mpp/*
     \${APT_INSTALL} /packages/gst-rkmpp/*.deb
